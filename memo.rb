@@ -14,16 +14,18 @@ loop do
       file = gets.chomp
       file_name = file + '.csv'
       puts "文章を入力してください"
+      puts "完了したらCtrl+Dを押してください"
       CSV.open(file_name, 'w') do |csv|
-       csv << [gets.chomp]
+       csv << readlines
       end
   elsif memo_type == 2
       puts "拡張子を除いた編集するファイル名を入力してください"
       re_file = gets.chomp
       re_file_name = re_file + '.csv'
       puts "追加する文章を入力してください"
+      puts "完了したらCtrl+Dを押してください"
       CSV.open(re_file_name, 'a') do |csv|
-          csv << [gets.chomp]
+          csv << readlines
       end
   else
       puts "不正な値です"
